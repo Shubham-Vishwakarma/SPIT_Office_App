@@ -1,0 +1,61 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_student"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/action_bar_padding_top"
+    tools:context="fragments.NoticeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/spit1"/>
+            <TextView
+                android:paddingLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/spit"
+                android:textSize="17dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+        <TextView
+            android:paddingTop="25sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/background_dark"
+            android:text="@string/about_office_details"
+            android:textSize="15sp"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/spit_website_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/spit_website"
+            android:textColor="#0000ff"
+            android:textAllCaps="false"
+            android:textSize="17sp"
+            android:background="@android:color/transparent"
+            android:gravity="center"/>
+    </LinearLayout>
+</ScrollView>

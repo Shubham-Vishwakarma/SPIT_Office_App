@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/action_notice"
+            android:title="@string/notice">
+        </item>
+
+        <item
+            android:id="@+id/action_examination"
+            android:title="@string/exam">
+        </item>
+
+        <item
+            android:id="@+id/action_concession"
+            android:title="@string/concession">
+        </item>
+
+        <item
+            android:id="@+id/action_certificate"
+            android:title="@string/certificate">
+        </item>
+
+    </group>
+
+    <item android:title="Others">
+        <menu>
+            <item
+                android:id="@+id/action_signOut"
+                android:title="@string/signOut">
+            </item>
+            <item
+                android:id="@id/action_aboutApp"
+                android:title="@string/aboutApp">
+            </item>
+            <item
+                android:id="@+id/action_aboutOffice"
+                android:title="@string/aboutOffice">
+            </item>
+            <item
+                android:id="@+id/action_aboutMe"
+                android:title="@string/aboutMe">
+            </item>
+        </menu>
+    </item>
+</menu>

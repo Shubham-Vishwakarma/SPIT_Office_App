@@ -1,0 +1,170 @@
+<resources>
+
+    <!--EMAILS-->
+    <string-array name="authority_emails">
+        <item>shubhamvishwakarma71@gmail.com</item>
+        <item>priyanka.lubal33@gmail.com</item>
+        <item>madhugore1@gmail.com</item>
+    </string-array>
+
+    <!--Menu-->
+    <string name="action_upload">Upload</string>
+
+    <!--LoginNavigation-->
+    <string name="other">Others</string>
+    <string name="aboutApp">About App</string>
+    <string name="aboutOffice">About Office</string>
+
+    <!--LoginFragment-->
+    <string name="app_name">SPIT</string>
+    <string name="login">Sign In</string>
+    <string name="signIn">Sign Up</string>
+    <string name="spit"><b> Bhartiya Vidya Bhavan\'s </b>\n<b>Sardar Patel Institute of Technology </b></string>
+    <string name="forgotpassword"><u>Forgot Password? Click here</u></string>
+
+    <!--SignInFragment-->
+    <string name="name">Name</string>
+    <string name="UID">UID</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="department">Department</string>
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
+    <string name="cpassword">Confirm\nPassword\n</string>
+    <string name="done">Done</string>
+
+    <string-array name="department_list">
+        <item>COMPS</item>
+        <item>EXTC</item>
+        <item>IT</item>
+        <item>ETRX</item>
+        <item>MCA</item>
+    </string-array>
+
+    <string name="title_activity_upload">UploadActivity</string>
+    <string name="title_activity_admin">AdminActivity</string>
+
+    <!--StudentActivity-->
+    <string name="welcome">Welcome</string>
+    <string name="exam">Examination</string>
+    <string name="concession">Concession</string>
+    <string name="notice">Notice</string>
+    <string name="certificate">Certificate</string>
+    <string name="signOut">Sign Out</string>
+    <string name="aboutMe">About Me</string>
+
+
+    <!--Examination Fragment -->
+    <string name="examFee">Exam Fees</string>
+    <string name="examSchedule">Exam Schedule</string>
+    <string name="resultDates">Result Dates</string>
+
+    <!--Bonafide Fragment-->
+    <string name="bonafide_title"><u>Bonafide Certificate</u></string>
+    <string name="reason_bonafide">Reason for Bonafide</string>
+    <string name="apply_bonafide">Apply New</string>
+    <string name="bonafide_status">Check Status</string>
+
+    <!--Concession Fragment-->
+    <string name="railway_concession"><u>Railway Concession</u></string>
+    <string name="from_station">From Station</string>
+    <string name="to_station">To Station</string>
+    <string name="apply_concession">Apply Concession</string>
+    <string name="scholarship"><u>Scholarships</u></string>
+    <string name="lines">Lines</string>
+    <string name="class_of_travel">Class of Travel</string>
+    <string-array name="line_names">
+        <item>Central Railway</item>
+        <item>Western Railway</item>
+        <item>Harbour Railway</item>
+    </string-array>
+
+    <string-array name="central_station_names">
+        <item>Dadar</item>
+        <item>Thane</item>
+        <item>Ghatkopar</item>
+    </string-array>
+
+    <string-array name="western_station_names">
+        <item>Andheri</item>
+        <item>Borivali</item>
+        <item>Bandra</item>
+    </string-array>
+
+    <string-array name="harbour_station_names">
+        <item>Andheri</item>
+        <item>CST</item>
+        <item>Panvel</item>
+    </string-array>
+
+    <string-array name="travel_class">
+        <item>Select Class...</item>
+        <item>First Class</item>
+        <item>Second Class</item>
+    </string-array>
+
+    <!--AboutOfficeFragment-->
+    <string name="about_office_details">\n
+        Address:\n\n\n
+        Room No. 006,\n\n
+        Bharatiya Vidya Bhavan\'s\n
+        Sardar Patel Institute of Technology\n\n
+        Bhavan’s Campus, Munshi Nagar,\n\n
+        Andheri (West), Mumbai 400 058\n\n
+        Phone: (+91) - (022) - 26707440 / 26287250\n\n\n
+        Timings: 9:00 AM to 5:00 PM\n</string>
+    <string name="spit_website"><u>www.spit.ac.in</u></string>
+
+
+    <!--AboutAppFragment-->
+    <string name="about_app_details">\n\n
+        SPIT Office is an app where you can find everything\n about college.
+        I consists of all features that are \n
+        currently seen on the official website.\n\n
+        There is a general notice section which can be used \n
+        by the office staff to communicate any general \n
+        announcements to be made. A separate examination\n
+        notice section has been incorporated in this app.\n\n
+        Also, the application for the railway concession and \n
+        bonafied certicate can be made through this app.\n\n
+        This app imposes restrictions on access rights for \n
+        the users of this app which lie solely with the \n
+        administrator. \n</string>
+    <string name="about_app_developers">
+        \n\nDevelopers\n
+        SPIT COMPS\n
+    </string>
+    <string name="submit_feedback">Submit</string>
+
+    <string name="title_activity_navigation">Navigation</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!--ForgotPasswordFragment-->
+    <string name="forgotpasswordsteps">
+         1. Enter a valid email id below\n
+        2. You will receive an email for resetting password.\n
+        3. Change your password.\n
+    </string>
+    <string name="send_forgot_password">Reset Password</string>
+
+    <!--AdminActivity-->
+    <string name="category">Category</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="upload">Upload</string>
+
+    <string-array name="category_list">
+        <item>Notice</item>
+        <item>Examination</item>
+    </string-array>
+    <string name="selected_document">File</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

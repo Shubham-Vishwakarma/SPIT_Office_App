@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/action_loginIn"
+            android:title="@string/login">
+
+        </item>
+        <item
+            android:id="@+id/action_signIn"
+            android:title="@string/signIn">
+        </item>
+    </group>
+
+    <item android:title="@string/other"
+        tools:ignore="AppCompatResource">
+        <menu>
+            <item
+                android:id="@+id/action_aboutApp"
+                android:title="@string/aboutApp">
+            </item>
+            <item
+                android:id="@+id/action_aboutOffice"
+                android:title="@string/aboutOffice">
+            </item>
+        </menu>
+    </item>
+</menu>
