@@ -1,6 +1,9 @@
 package com.example.admin.spit;
 
+import android.content.Context;
 import android.content.DialogInterface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -65,6 +68,7 @@ public class AdminActivity extends AppCompatActivity implements NavigationView.O
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+            finishAffinity();
         }
     }
 
@@ -129,8 +133,10 @@ public class AdminActivity extends AppCompatActivity implements NavigationView.O
             public void onClick(DialogInterface dialogInterface, int i) {
                 try
                 {
-                    FirebaseAuth.getInstance().signOut();
-                    finish();
+                    if(isInternetConnected()) {
+                        FirebaseAuth.getInstance().signOut();
+                        finish();
+                    }
                 }
                 catch (Exception e)
                 {
@@ -149,6 +155,19 @@ public class AdminActivity extends AppCompatActivity implements NavigationView.O
         AlertDialog dialog=builder.create();
         dialog.show();
         dialog.getWindow().setBackgroundDrawableResource(R.color.colorWindowBackground);
+    }
+
+    public boolean isInternetConnected()
+    {
+        ConnectivityManager connectivityManager=(ConnectivityManager)this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo=connectivityManager.getActiveNetworkInfo();
+
+        if(networkInfo==null || !networkInfo.isConnected() || !networkInfo.isAvailable())
+        {
+            Toast.makeText(AdminActivity.this,"No Internet Connectivity",Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
     }
 
 }

@@ -1,7 +1,10 @@
 package fragments;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -42,6 +45,7 @@ public class LoginFragment extends Fragment {
     private ProgressDialog progressDialog;
 
     private FirebaseAuth firebaseAuth;
+    private FirebaseUser firebaseUser;
     private FirebaseAuth.AuthStateListener authStateListener;
     private DatabaseReference databaseReference;
 
@@ -75,11 +79,11 @@ public class LoginFragment extends Fragment {
         authStateListener=new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null)                // User is signed in
+                firebaseUser = firebaseAuth.getCurrentUser();
+                if (firebaseUser != null)                // User is signed in
                 {
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    String email=user.getEmail();
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + firebaseUser.getUid());
+                    String email=firebaseUser.getEmail();
 
                     if (email.contains(ADMIN_EMAIL_SPIT)) {
                         startActivity(new Intent(getActivity(),AdminActivity.class));
@@ -147,13 +151,20 @@ public class LoginFragment extends Fragment {
                         if(task.isSuccessful())
                         {
                             Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
-                            FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
 //                            if(firebaseUser.isEmailVerified())
 //                            {
-                                databaseReference= FirebaseDatabase.getInstance().getReference().child("users").child(firebaseUser.getUid());
+                                if(firebaseUser.getEmail().contains(ADMIN_EMAIL_SPIT))
+                                {
+                                    databaseReference= FirebaseDatabase.getInstance().getReference().child("Office").child(firebaseUser.getUid());
+                                }
+                                else
+                                {
+                                    databaseReference= FirebaseDatabase.getInstance().getReference().child("users").child(firebaseUser.getUid());
+                                }
+
                                 retrieveData();
                                 hideProgressDialog();
-                                if(Email.contains(ADMIN_EMAIL_SPIT))
+                                if(firebaseUser.getEmail().contains(ADMIN_EMAIL_SPIT))
                                 {
                                     Intent intent=new Intent(getActivity(), AdminActivity.class);
                                     startActivity(intent);
@@ -202,7 +213,6 @@ public class LoginFragment extends Fragment {
             {
                 User user=dataSnapshot.getValue(User.class);
                 username=user.Name;
-                department=user.Department;
                 Toast.makeText(getActivity(),username,Toast.LENGTH_SHORT).show();
             }
 

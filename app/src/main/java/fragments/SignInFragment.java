@@ -256,6 +256,13 @@ public class SignInFragment extends Fragment {
     public void writeNewUser(String userId,String Name,String Email,String UID,String Gender,String Department)
     {
         User user = new User(Name,Email,UID,Gender,Department);
-        databaseReference.child("users").child(userId).setValue(user);
+        if(Email.contains(ADMIN_EMAIL_ID))
+        {
+            databaseReference.child("Office").child(userId).setValue(user);
+        }
+        else
+        {
+            databaseReference.child("users").child(userId).setValue(user);
+        }
     }
 }

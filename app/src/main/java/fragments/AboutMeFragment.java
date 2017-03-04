@@ -37,6 +37,7 @@ public class AboutMeFragment extends Fragment {
     FirebaseUser firebaseUser;
     DatabaseReference databaseReference;
 
+    final String ADMIN_EMAIL_ID="@spit.ac.in";
     public AboutMeFragment() {
         // Required empty public constructor
     }
@@ -72,7 +73,15 @@ public class AboutMeFragment extends Fragment {
     public void retreiveData()
     {
         firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("users").child(firebaseUser.getUid());
+        if(firebaseUser.getEmail().contains(ADMIN_EMAIL_ID))
+        {
+            databaseReference = FirebaseDatabase.getInstance().getReference().child("Office").child(firebaseUser.getUid());
+        }
+        else
+        {
+            databaseReference = FirebaseDatabase.getInstance().getReference().child("users").child(firebaseUser.getUid());
+        }
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

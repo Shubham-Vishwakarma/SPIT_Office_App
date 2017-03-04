@@ -40,10 +40,19 @@
 
         <TextView
             android:paddingTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bhavans_heading"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:textColor="@color/colorPrimaryDark"
+            />
+
+        <TextView
             android:paddingBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/spit"
+            android:text="@string/spit_heading"
             android:textSize="20dp"
             android:layout_gravity="center"
             android:textColor="@color/colorPrimaryDark"

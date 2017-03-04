@@ -44,11 +44,10 @@ public class ConcessionFragment extends Fragment {
 
     Spinner line_spinner;
     Spinner from_station;
-    /*Spinner*/ TextView to_station;
+    TextView to_station;
 
-    String from_station_string, to_station_string, line;
+    String from_station_string, line;
     ArrayAdapter<String> from_station_list;
-    //ArrayAdapter<String> to_station_list;
     Button apply_concession;
     Button scholarship_button;
 
@@ -57,6 +56,8 @@ public class ConcessionFragment extends Fragment {
     final String LINE="Line:  ";
     final String FROM_STATION="From Station:  ";
     final String TO_STATION="To Station:  ";
+    final String ADMIN_EMAIL_ID="@spit.ac.in";
+    final String DESTINATION="Andheri";
 
     public ConcessionFragment() {
         // Required empty public constructor
@@ -84,9 +85,7 @@ public class ConcessionFragment extends Fragment {
         scholarship_button=(Button)view.findViewById(R.id.scholarship_button);
 
         from_station_list=setCentral();
-        //to_station_list=setCentral();
         from_station.setAdapter(from_station_list);
-        //to_station.setAdapter(to_station_list);
 
         line_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -95,17 +94,13 @@ public class ConcessionFragment extends Fragment {
                 switch(line)
                 {
                     case "Central Railway":from_station_list=setCentral();
-          //                 to_station_list=setCentral();
                          break;
                     case "Western Railway":from_station_list=setWestern();
-            //               to_station_list=setWestern();
                         break;
                     case "Harbour Railway":from_station_list=setHarbour();
-              //             to_station_list=setHarbour();
                         break;
                 }
                 from_station.setAdapter(from_station_list);
-                //to_station.setAdapter(to_station_list);
             }
 
             @Override
@@ -125,19 +120,7 @@ public class ConcessionFragment extends Fragment {
 
             }
         });
-/*
-        to_station.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                to_station_string=adapterView.getSelectedItem().toString();
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-*/
         apply_concession.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -163,7 +146,7 @@ public class ConcessionFragment extends Fragment {
     void sendEmail()
     {
         String MESSAGE = username + "\n" + UID + "\n" + Gender + "\n" + Department + "\n" +
-                LINE+line+"\n"+FROM_STATION+from_station_string+"\n"+TO_STATION+to_station_string+"\n";
+                LINE+line+"\n"+FROM_STATION+from_station_string+"\n"+TO_STATION+DESTINATION+"\n";
         try {
             Intent intent = new Intent(Intent.ACTION_SENDTO);
             intent.setData(Uri.parse("mailto:"));
@@ -208,7 +191,14 @@ public class ConcessionFragment extends Fragment {
     void retrieveData()
     {
         firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("users").child(firebaseUser.getUid());
+        if(firebaseUser.getEmail().contains(ADMIN_EMAIL_ID))
+        {
+            databaseReference = FirebaseDatabase.getInstance().getReference().child("Office").child(firebaseUser.getUid());
+        }
+        else
+        {
+            databaseReference = FirebaseDatabase.getInstance().getReference().child("users").child(firebaseUser.getUid());
+        }
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

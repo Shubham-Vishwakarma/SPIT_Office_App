@@ -1,7 +1,10 @@
 package com.example.admin.spit;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -62,8 +65,11 @@ public class StudentActivity extends AppCompatActivity implements NavigationView
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.navigation_student);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        }
+        else
+        {
             super.onBackPressed();
+            finishAffinity();
         }
     }
 
@@ -125,14 +131,15 @@ public class StudentActivity extends AppCompatActivity implements NavigationView
             public void onClick(DialogInterface dialogInterface, int i) {
                 try
                 {
-                    FirebaseAuth.getInstance().signOut();
-                    finish();
+                    if(isInternetConnected()) {
+                        FirebaseAuth.getInstance().signOut();
+                        finish();
+                    }
                 }
                 catch (Exception e)
                 {
                     Toast.makeText(StudentActivity.this,"Error",Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
 
@@ -145,5 +152,18 @@ public class StudentActivity extends AppCompatActivity implements NavigationView
         AlertDialog dialog=builder.create();
         dialog.show();
         dialog.getWindow().setBackgroundDrawableResource(R.color.colorWindowBackground);
+    }
+
+    public boolean isInternetConnected()
+    {
+        ConnectivityManager connectivityManager=(ConnectivityManager)this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo=connectivityManager.getActiveNetworkInfo();
+
+        if(networkInfo==null || !networkInfo.isConnected() || !networkInfo.isAvailable())
+        {
+            Toast.makeText(StudentActivity.this,"No Internet Connectivity",Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
     }
 }

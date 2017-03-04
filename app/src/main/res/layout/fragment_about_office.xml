@@ -34,6 +34,16 @@
         </LinearLayout>
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="233dp"
+            android:src="@drawable/spitentrance"/>
+
+        <TextView
             android:paddingTop="25sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,11 +51,6 @@
             android:text="@string/about_office_details"
             android:textSize="15sp"
             android:gravity="center"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp">
-        </LinearLayout>
 
         <Button
             android:id="@+id/spit_website_button"

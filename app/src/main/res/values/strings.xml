@@ -19,7 +19,9 @@
     <string name="app_name">SPIT</string>
     <string name="login">Sign In</string>
     <string name="signIn">Sign Up</string>
-    <string name="spit"><b> Bhartiya Vidya Bhavan\'s </b>\n<b>Sardar Patel Institute of Technology </b></string>
+    <string name="bhavans_heading"><b><u>Bhartiya Vidya Bhavan\'s</u></b></string>
+    <string name="spit_heading"><b><u>Sardar Patel Institute of Technology</u></b></string>
+    <string name="spit"><b><u>Bhartiya Vidya Bhavan\'s\nSardar Patel Institute of Technology</u></b></string>
     <string name="forgotpassword"><u>Forgot Password? Click here</u></string>
 
     <!--SignInFragment-->
@@ -40,6 +42,7 @@
         <item>IT</item>
         <item>ETRX</item>
         <item>MCA</item>
+        <item>Office/Faculty</item>
     </string-array>
 
     <string name="title_activity_upload">UploadActivity</string>
@@ -99,20 +102,19 @@
     </string-array>
 
     <string-array name="travel_class">
-        <item>Select Class...</item>
         <item>First Class</item>
         <item>Second Class</item>
     </string-array>
 
     <!--AboutOfficeFragment-->
-    <string name="about_office_details">\n
-        Address:\n\n\n
-        Room No. 006,\n\n
+    <string name="about_office_details">
+        Address:\n
+        Room No. 006,\n
         Bharatiya Vidya Bhavan\'s\n
-        Sardar Patel Institute of Technology\n\n
-        Bhavan’s Campus, Munshi Nagar,\n\n
-        Andheri (West), Mumbai 400 058\n\n
-        Phone: (+91) - (022) - 26707440 / 26287250\n\n\n
+        Sardar Patel Institute of Technology\n
+        Bhavan’s Campus, Munshi Nagar,\n
+        Andheri (West), Mumbai 400 058\n
+        Phone: (+91) - (022) - 26707440 / 26287250\n
         Timings: 9:00 AM to 5:00 PM\n</string>
     <string name="spit_website"><u>www.spit.ac.in</u></string>
 
