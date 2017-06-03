@@ -8,6 +8,7 @@ public class Topics {
 
     public String title;
     public String description;
+    //public String date;
 
     public Topics()
     {
@@ -18,5 +19,6 @@ public class Topics {
     {
         this.title=title;
         this.description=description;
+        //this.date=date;
     }
 }

@@ -3,10 +3,8 @@ package fragments;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -28,9 +26,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -98,6 +93,8 @@ public class ConcessionFragment extends Fragment {
                     case "Western Railway":from_station_list=setWestern();
                         break;
                     case "Harbour Railway":from_station_list=setHarbour();
+                        break;
+                    case "Trans-Harbour Railway":from_station_list=setTransHarbour();
                         break;
                 }
                 from_station.setAdapter(from_station_list);
@@ -182,6 +179,15 @@ public class ConcessionFragment extends Fragment {
     ArrayAdapter<String> setHarbour()
     {
         String list[]=getResources().getStringArray(R.array.harbour_station_names);
+
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,list);
+        adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        return adapter;
+    }
+
+    ArrayAdapter<String> setTransHarbour()
+    {
+        String list[]=getResources().getStringArray(R.array.trans_station_names);
 
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,list);
         adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);

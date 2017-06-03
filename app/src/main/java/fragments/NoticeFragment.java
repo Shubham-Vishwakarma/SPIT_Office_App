@@ -10,19 +10,18 @@ import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.admin.spit.CustomListView;
 import com.example.admin.spit.R;
-import com.example.admin.spit.TopicList;
 import com.example.admin.spit.Topics;
 import com.example.admin.spit.User;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -42,8 +41,6 @@ import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -57,8 +54,8 @@ public class NoticeFragment extends Fragment {
     NotificationManager notificationManager;
     NotificationCompat.Builder builder;
     TextView username_textview;
-    ArrayList<String> noticeTopicsList=new ArrayList<>();
-    ArrayList<String> noticeDescriptionList=new ArrayList<>();
+    ProgressBar progressBar;
+    ArrayList<Topics> noticeTopicsList=new ArrayList<Topics>();
     CustomListView customListView;
 
     final String ADMIN_EMAIL_ID="@spit.ac.in";
@@ -82,12 +79,16 @@ public class NoticeFragment extends Fragment {
         username_textview = (TextView) view.findViewById(R.id.username_textview);
 
         listView=(ListView)view.findViewById(R.id.notice_listview);
+        progressBar=(ProgressBar)view.findViewById(R.id.loading_progressBar);
+        progressBar.setVisibility(View.VISIBLE);
+
         customListView=new CustomListView(getActivity(),noticeTopicsList);
+
         listView.setAdapter(customListView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                downloadFileViaNotification(noticeTopicsList.get(i),i);
+                downloadFileViaNotification(noticeTopicsList.get(i).title,i);
             }
         });
 
@@ -101,10 +102,9 @@ public class NoticeFragment extends Fragment {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Topics topics=dataSnapshot.getValue(Topics.class);
-                String temp_title=topics.title;
-                String temp_description=topics.description;
                 //informUpdateViaNotification(temp_title,temp_description);
-                customListView.add(temp_title);
+                customListView.add(topics);
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override
@@ -115,8 +115,7 @@ public class NoticeFragment extends Fragment {
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
                 Topics topics=dataSnapshot.getValue(Topics.class);
-                String temp_title=topics.title;
-                customListView.remove(temp_title);
+                customListView.remove(topics);
             }
 
             @Override

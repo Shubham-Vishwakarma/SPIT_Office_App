@@ -11,5 +11,5 @@
     <dimen name="navigation_drawer_width">240dp</dimen>
     <dimen name="navigation_drawer_height">160dp</dimen>
     <dimen name="action_bar_padding_top">64dp</dimen>
-    <dimen name="my_custom_height">100dp</dimen>
+    <dimen name="my_custom_height">80dp</dimen>
 </resources>

@@ -81,23 +81,143 @@
         <item>Central Railway</item>
         <item>Western Railway</item>
         <item>Harbour Railway</item>
+        <item>Trans-Harbour Railway</item>
     </string-array>
 
     <string-array name="central_station_names">
+        <item>CST</item>
+        <item>Masjid</item>
+        <item>Sandhrust Road</item>
+        <item>Byculla</item>
+        <item>Chinchpokli</item>
+        <item>Currey Road</item>
+        <item>Parel</item>
         <item>Dadar</item>
-        <item>Thane</item>
+        <item>Matunga</item>
+        <item>Sion</item>
+        <item>Kurla</item>
+        <item>Vidyavihar</item>
         <item>Ghatkopar</item>
+        <item>Vikhroli</item>
+        <item>Kanjur Marg</item>
+        <item>Bhandup</item>
+        <item>Nahur</item>
+        <item>Mulund</item>
+        <item>Thane</item>
+        <item>Kalva</item>
+        <item>Mumbra</item>
+        <item>Diva Junction</item>
+        <item>Kopar</item>
+        <item>Dombilivi</item>
+        <item>Thakurli</item>
+        <item>Kalyan</item>
+        <item>Vithalwadi</item>
+        <item>Ulhas Nagar</item>
+        <item>Ambernath</item>
+        <item>Badlapur</item>
+        <item>Vangani</item>
+        <item>Shelu</item>
+        <item>Neral</item>
+        <item>Bhivpuri Road</item>
+        <item>Karjat</item>
+        <item>Palasdhari</item>
+        <item>Kelavli</item>
+        <item>Dolavli</item>
+        <item>Lowjee</item>
+        <item>Khopoli</item>
+        <item>Shahad</item>
+        <item>Ambivli</item>
+        <item>Titwala</item>
+        <item>Khadavli</item>
+        <item>Vasind</item>
+        <item>Asangaon</item>
+        <item>Atgaon</item>
+        <item>Khardi</item>
+        <item>Kasara</item>
     </string-array>
 
     <string-array name="western_station_names">
-        <item>Andheri</item>
-        <item>Borivali</item>
+        <item>Churchgate</item>
+        <item>Marine Lines</item>
+        <item>Charni Road</item>
+        <item>Grant Road</item>
+        <item>Mumbai Central</item>
+        <item>Mahalakshmi</item>
+        <item>Lower Parel</item>
+        <item>Elphinstone Road</item>
+        <item>Dadar</item>
+        <item>Matunga Road</item>
+        <item>Mahim Junction</item>
         <item>Bandra</item>
+        <item>Khar Road</item>
+        <item>SantaCruz</item>
+        <item>Vile Parle</item>
+        <item>Andheri</item>
+        <item>Jogeshwari</item>
+        <item>Goregaon</item>
+        <item>Malad</item>
+        <item>Kandivali</item>
+        <item>Borivali</item>
+        <item>Dahisar</item>
+        <item>Mira Road</item>
+        <item>Bhayander</item>
+        <item>Naigaon</item>
+        <item>Vasai Road</item>
+        <item>Nalla Sopara</item>
+        <item>Virar</item>
     </string-array>
 
     <string-array name="harbour_station_names">
-        <item>Andheri</item>
         <item>CST</item>
+        <item>Masjid</item>
+        <item>Sandhrust Road</item>
+        <item>Dockyard Road</item>
+        <item>Reay Road</item>
+        <item>Cotton Green</item>
+        <item>Sewri</item>
+        <item>Vadala Road</item>
+        <item>Kings Circle</item>
+        <item>Mahim Junction</item>
+        <item>Bandra</item>
+        <item>Khar Road</item>
+        <item>SantaCruz</item>
+        <item>Vile Parle</item>
+        <item>Andheri</item>
+        <item>GTB Nagar</item>
+        <item>Chunabhatti</item>
+        <item>Kurla</item>
+        <item>Tilaknagar</item>
+        <item>Chembur</item>
+        <item>Govandi</item>
+        <item>Mankhurd</item>
+        <item>Vashi</item>
+        <item>Sanpada</item>
+        <item>Juinagar</item>
+        <item>Nerul</item>
+        <item>Seawood Darave</item>
+        <item>Belapur CBD</item>
+        <item>Kharghar</item>
+        <item>Manasarovar</item>
+        <item>Khandeshwar</item>
+        <item>Panvel</item>
+    </string-array>
+
+    <string-array name="trans_station_names">
+        <item>Thane</item>
+        <item>Airoli</item>
+        <item>Rabale</item>
+        <item>Ghansoli</item>
+        <item>Koparkhairne</item>
+        <item>Turbhe</item>
+        <item>Sanpada</item>
+        <item>Vashi</item>
+        <item>Juinagar</item>
+        <item>Nerul</item>
+        <item>Seawood Darave</item>
+        <item>Belapur CBD</item>
+        <item>Kharghar</item>
+        <item>Manasarovar</item>
+        <item>Khandeshwar</item>
         <item>Panvel</item>
     </string-array>
 
@@ -159,6 +279,8 @@
     <string name="title">Title</string>
     <string name="description">Description</string>
     <string name="upload">Upload</string>
+    <string name="date_title">Date: </string>
+    <string name="date">DD/MM/YYYY</string>
 
     <string-array name="category_list">
         <item>Notice</item>

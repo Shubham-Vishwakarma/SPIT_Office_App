@@ -52,6 +52,13 @@
             android:textColor="@color/colorPrimary"/>
     </LinearLayout>
 
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/loading_progressBar"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        android:layout_gravity="center"/>
+
     <ListView
         android:id="@+id/notice_listview"
         android:layout_width="match_parent"

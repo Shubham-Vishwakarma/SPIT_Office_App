@@ -23,6 +23,7 @@ import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,9 +64,10 @@ public class ExaminationFragment extends Fragment {
     DatabaseReference databaseReference;
     NotificationManager notificationManager;
     NotificationCompat.Builder builder;
-    ArrayList<String> examinationTopicsList=new ArrayList<String>();
-    ArrayList<String> examinationDescriptionList=new ArrayList<String>();
+    ArrayList<Topics> examinationTopicsList=new ArrayList<Topics>();
+
     CustomListView customListView;
+    ProgressBar progressBar;
 
     final String ADMIN_EMAIL_ID="@spit.ac.in";
 
@@ -86,14 +88,18 @@ public class ExaminationFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         retrieveData();
+
         username_textview=(TextView)view.findViewById(R.id.Name);
         listView=(ListView)view.findViewById(R.id.examination_listview);
+        progressBar=(ProgressBar)view.findViewById(R.id.loading_progressBar);
+        progressBar.setVisibility(View.VISIBLE);
+
         customListView=new CustomListView(getActivity(),examinationTopicsList);
         listView.setAdapter(customListView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                downloadFileViaNotification(examinationTopicsList.get(i),i);
+                downloadFileViaNotification(examinationTopicsList.get(i).title,i);
             }
         });
 
@@ -107,8 +113,8 @@ public class ExaminationFragment extends Fragment {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Topics topics=dataSnapshot.getValue(Topics.class);
-                String temp_title=topics.title;
-                customListView.add(temp_title);
+                customListView.add(topics);
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override
@@ -119,8 +125,7 @@ public class ExaminationFragment extends Fragment {
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
                 Topics topics=dataSnapshot.getValue(Topics.class);
-                String temp_title=topics.title;
-                customListView.add(temp_title);
+                customListView.add(topics);
             }
 
             @Override

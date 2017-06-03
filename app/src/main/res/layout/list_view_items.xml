@@ -1,55 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/my_custom_height" >
+    android:layout_height="@dimen/my_custom_height"
+    android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/list_view_icon"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/download_icon"
-        android:layout_centerVertical="true"
-        />
+        android:layout_height="@dimen/my_custom_height"
+        android:src="@drawable/download_icon"/>
 
-    <TextView
-        android:id="@+id/list_view_title"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="15dp"
-        android:layout_alignParentRight="true"
-        android:layout_toRightOf="@id/list_view_icon"
-        android:ellipsize="marquee"
-        android:paddingLeft="5dp"
-        android:text="Title"
-        android:textColor="@color/colorAccent"
-        android:textSize="15sp"
-        android:maxLines="1"/>
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/list_view_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_toRightOf="@id/list_view_icon"
-        android:layout_below="@+id/list_view_title"
-        android:ellipsize="marquee"
-        android:paddingLeft="5dp"
-        android:paddingTop="10dp"
-        android:text="Description"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="12sp"/>
+        <TextView
+            android:paddingTop="20dp"
+            android:paddingLeft="5dp"
+            android:id="@+id/list_view_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:text="@string/title"
+            android:textColor="@color/colorAccent"
+            android:textSize="17sp"
+            android:maxLines="1"/>
 
-    <TextView
-        android:text="Date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="49dp"
-        android:layout_marginEnd="49dp"
-        android:id="@+id/listViewDate"
-        android:textSize="12sp"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_below="@+id/list_view_description"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <TextView
+                android:id="@+id/list_view_description"
+                android:paddingLeft="5dp"
+                android:paddingTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:text="@string/description"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:maxLines="1"/>
 
-</RelativeLayout>
+            <TextView
+                android:paddingTop="10dp"
+                android:id="@+id/listViewDate_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date_title"
+                android:textSize="12sp"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <TextView
+                android:paddingTop="10dp"
+                android:id="@+id/listViewDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date"
+                android:textSize="12sp"
+                android:textColor="@color/colorPrimaryDark" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
